@@ -1,0 +1,286 @@
+awesome — I converted your page to a K‑12 networking (CCNA‑style) version while preserving your RTL Bootstrap look & feel and card layout. You can drop this in as a full replacement for your current HTML. All PDFs/links are set to sensible placeholders so you can plug in your own slides, summaries, Packet Tracer labs, etc.
+
+```html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>تعلم شبكات الحاسوب - مسار CCNA المدرسي</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+  <style>
+    body{background-color:#f8f9fa;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif}
+    .lesson-card{margin-bottom:20px}
+    .card-header{background:#ffffff;border-bottom:1px solid #e9ecef}
+    .card .btn{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    footer{background-color:#343a40;color:#fff;padding:20px 0}
+    footer a{color:#ccc;text-decoration:none}
+    footer a:hover{text-decoration:underline}
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">🌐 شبكات الحاسوب (K‑12)</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNavbar">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link active" href="#">الرئيسية</a></li>
+        <li class="nav-item"><a class="nav-link" href="lessons.html">الوحدات التعليمية</a></li>
+        <li class="nav-item"><a class="nav-link" href="links.html">روابط مهمة</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container" id="lessons">
+  <h1 class="text-center mb-4">الوحدات التعليمية – مسار CCNA لطلاب المدارس</h1>
+  <div class="row">
+
+    <!-- مدخل إلى شبكات الحاسوب -->
+    <div class="col-md-6 lesson-card">
+      <div class="card shadow-lg border-0 h-100">
+        <div class="card-header">
+          <h5 class="mb-0 text-dark"><strong>🔰 مدخل إلى شبكات الحاسوب</strong></h5>
+        </div>
+        <div class="card-body bg-light">
+          <p class="card-text">ما هي الشبكة؟ لماذا نحتاجها؟ أنواع الشبكات (LAN/WAN/WLAN) وأمثلة مدرسية وحياتية.</p>
+          <div class="row g-2">
+            <div class="col-6"><a href="pdf/Unit0-Intro.pdf" class="btn btn-outline-primary w-100">📊 عرض تمهيدي</a></div>
+            <div class="col-6"><a href="Summaries/Unit0-Summary.pdf" class="btn btn-outline-secondary w-100">📝 تلخيص سريع</a></div>
+            <div class="col-6"><a href="labs/Unit0-ExploreNetwork.pt" class="btn btn-outline-success w-100">🧪 ملف Packet Tracer</a></div>
+            <div class="col-6"><a href="quizzes/Unit0-Quiz.html" class="btn btn-outline-danger w-100">🧩 اختبار قصير</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- الأدوات والمحاكيات -->
+    <div class="col-md-6 lesson-card">
+      <div class="card shadow-lg border-0 h-100">
+        <div class="card-header">
+          <h5 class="mb-0 text-dark"><strong>🧰 أدوات ومحاكيات</strong></h5>
+        </div>
+        <div class="card-body bg-light">
+          <p class="card-text">ابدأ بالتجربة العملية: Packet Tracer، Wireshark، وآلة حاسبة لعناوين IP.</p>
+          <div class="row g-2">
+            <div class="col-6"><a href="tools/PacketTracer.html" class="btn btn-outline-success w-100">🧪 Packet Tracer</a></div>
+            <div class="col-6"><a href="tools/Wireshark.html" class="btn btn-outline-info w-100">🔎 Wireshark أساسيات</a></div>
+            <div class="col-6"><a href="tools/ipcalc.html" class="btn btn-outline-primary w-100">🧮 حاسبة الشبكات</a></div>
+            <div class="col-6"><a href="tools/cli-cheatsheet.pdf" class="btn btn-outline-secondary w-100">📄 أوامر CLI مختصرة</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- الوحدة 1: الأساس النظري OSI/TCP-IP -->
+    <div class="col-md-6 lesson-card">
+      <div class="card shadow-lg border-0 h-100">
+        <div class="card-header"><h5 class="mb-0 text-dark"><strong>📘 الوحدة 1: نموذج OSI وTCP/IP</strong></h5></div>
+        <div class="card-body bg-light">
+          <p class="card-text">طبقات الشبكة، أدوار كل طبقة، أمثلة بروتوكولات، وكيف تمر البيانات عبر الشبكة.</p>
+          <div class="row g-2">
+            <div class="col-6"><a href="pdf/Unit1-OSI-TCPIP.pdf" class="btn btn-outline-dark w-100">📊 عرض الشرائح</a></div>
+            <div class="col-6"><a href="Summaries/Unit1-Summary.pdf" class="btn btn-outline-primary w-100">📝 تلخيص الدرس</a></div>
+            <div class="col-6"><a href="labs/Unit1-Layers-PT.pt" class="btn btn-outline-success w-100">🧪 تجربة طبقات</a></div>
+            <div class="col-6"><a href="quizzes/Unit1-Quiz.html" class="btn btn-outline-danger w-100">🏠 وظيفة بيتية</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- الوحدة 2: أجهزة الشبكات -->
+    <div class="col-md-6 lesson-card">
+      <div class="card shadow-lg border-0 h-100">
+        <div class="card-header"><h5 class="mb-0 text-dark"><strong>🖧 الوحدة 2: أجهزة الشبكات</strong></h5></div>
+        <div class="card-body bg-light">
+          <p class="card-text">مبدّل (Switch)، موزّع (Hub)، موجّه (Router)، نقطة وصول (AP)، وكيبلات.</p>
+          <div class="row g-2">
+            <div class="col-6"><a href="pdf/Unit2-Devices-Cabling.pdf" class="btn btn-outline-dark w-100">📊 الأجهزة والكيبلات</a></div>
+            <div class="col-6"><a href="Summaries/Unit2-Summary.pdf" class="btn btn-outline-primary w-100">📝 ملخّص</a></div>
+            <div class="col-6"><a href="labs/Unit2-DeviceIntro.pt" class="btn btn-outline-success w-100">🧪 توصيل مختبر</a></div>
+            <div class="col-6"><a href="quizzes/Unit2-Worksheet.pdf" class="btn btn-outline-danger w-100">📄 ورقة عمل</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- الوحدة 3: العنونة IPv4 والسبنتنغ -->
+    <div class="col-md-6 lesson-card">
+      <div class="card shadow-lg border-0 h-100">
+        <div class="card-header"><h5 class="mb-0 text-dark"><strong>🧮 الوحدة 3: IPv4 والعنونة والتقسيم (Subnetting)</strong></h5></div>
+        <div class="card-body bg-light">
+          <p class="card-text">تركيب عنوان IP، القناع، الشبكة/البرودكاست، وتمارين تقسيم سهلة للمدارس.</p>
+          <div class="row g-2">
+            <div class="col-6"><a href="pdf/Unit3-IPv4-Subnetting.pdf" class="btn btn-outline-dark w-100">📊 عرض IPv4</a></div>
+            <div class="col-6"><a href="Summaries/Unit3-QuickGuide.pdf" class="btn btn-outline-primary w-100">📝 دليل سريع</a></div>
+            <div class="col-6"><a href="labs/Unit3-Subnetting-PT.pt" class="btn btn-outline-success w-100">🧪 مختبر سبنتنغ</a></div>
+            <div class="col-6"><a href="quizzes/Unit3-Quiz.html" class="btn btn-outline-danger w-100">🧩 اختبار سريع</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- الوحدة 4: السويتشنغ وVLAN -->
+    <div class="col-md-6 lesson-card">
+      <div class="card shadow-lg border-0 h-100">
+        <div class="card-header"><h5 class="mb-0 text-dark"><strong>🔀 الوحدة 4: السويتشنغ وVLAN</strong></h5></div>
+        <div class="card-body bg-light">
+          <p class="card-text">جداول MAC، تكوين VLAN، Trunking، وInter-VLAN Routing (مستوى مبسّط).</p>
+          <div class="row g-2">
+            <div class="col-6"><a href="pdf/Unit4-Switching-VLANs.pdf" class="btn btn-outline-dark w-100">📊 عرض السويتشنغ</a></div>
+            <div class="col-6"><a href="Summaries/Unit4-Summary.pdf" class="btn btn-outline-primary w-100">📝 ملخّص</a></div>
+            <div class="col-6"><a href="labs/Unit4-VLANs-PT.pt" class="btn btn-outline-success w-100">🧪 مختبر VLAN</a></div>
+            <div class="col-6"><a href="quizzes/Unit4-Homework.pdf" class="btn btn-outline-danger w-100">🏠 وظيفة بيتية</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- الوحدة 5: الراوتنغ الأساسي -->
+    <div class="col-md-6 lesson-card">
+      <div class="card shadow-lg border-0 h-100">
+        <div class="card-header"><h5 class="mb-0 text-dark"><strong>🧭 الوحدة 5: الراوتنغ الأساسي</strong></h5></div>
+        <div class="card-body bg-light">
+          <p class="card-text">التوجيه الثابت، المفاهيم الأساسية لـ RIP/OSPF للمدارس، ومسارات افتراضية.</p>
+          <div class="row g-2">
+            <div class="col-6"><a href="pdf/Unit5-Routing-Basics.pdf" class="btn btn-outline-dark w-100">📊 عرض التوجيه</a></div>
+            <div class="col-6"><a href="Summaries/Unit5-Commands.pdf" class="btn btn-outline-primary w-100">📄 أوامر شائعة</a></div>
+            <div class="col-6"><a href="labs/Unit5-StaticRoutes.pt" class="btn btn-outline-success w-100">🧪 مختبر Static</a></div>
+            <div class="col-6"><a href="quizzes/Unit5-Quiz.html" class="btn btn-outline-danger w-100">🧩 اختبار</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- الوحدة 6: الشبكات اللاسلكية -->
+    <div class="col-md-6 lesson-card">
+      <div class="card shadow-lg border-0 h-100">
+        <div class="card-header"><h5 class="mb-0 text-dark"><strong>📡 الوحدة 6: الشبكات اللاسلكية (Wi‑Fi)</strong></h5></div>
+        <div class="card-body bg-light">
+          <p class="card-text">مفاهيم 2.4/5 GHz، قنوات، تشفير WPA2/WPA3، وتخطيط نقطة وصول مدرسية.</p>
+          <div class="row g-2">
+            <div class="col-6"><a href="pdf/Unit6-Wireless.pdf" class="btn btn-outline-dark w-100">📊 عرض Wi‑Fi</a></div>
+            <div class="col-6"><a href="Summaries/Unit6-Summary.pdf" class="btn btn-outline-primary w-100">📝 ملخّص</a></div>
+            <div class="col-6"><a href="labs/Unit6-AP-Setup.pt" class="btn btn-outline-success w-100">🧪 إعداد AP</a></div>
+            <div class="col-6"><a href="quizzes/Unit6-Worksheet.pdf" class="btn btn-outline-danger w-100">📄 ورقة عمل</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- الوحدة 7: الخدمات وNAT وDHCP وDNS وACL -->
+    <div class="col-md-6 lesson-card">
+      <div class="card shadow-lg border-0 h-100">
+        <div class="card-header"><h5 class="mb-0 text-dark"><strong>🛡️ الوحدة 7: خدمات الشبكة والأمان (DHCP/DNS/NAT/ACL)</strong></h5></div>
+        <div class="card-body bg-light">
+          <p class="card-text">توزيع العناوين تلقائيًا، ترجمة العناوين، أساسيات قوائم التحكم بالوصول.</p>
+          <div class="row g-2">
+            <div class="col-6"><a href="pdf/Unit7-Services-Security.pdf" class="btn btn-outline-dark w-100">📊 عرض الخدمات</a></div>
+            <div class="col-6"><a href="Summaries/Unit7-ACL-Cheat.pdf" class="btn btn-outline-primary w-100">📄 ملخّص ACL</a></div>
+            <div class="col-6"><a href="labs/Unit7-DHCP-NAT-ACL.pt" class="btn btn-outline-success w-100">🧪 مختبر خدمات</a></div>
+            <div class="col-6"><a href="quizzes/Unit7-Quiz.html" class="btn btn-outline-danger w-100">🧩 اختبار</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- الوحدة 8: استكشاف الأخطاء وإصلاحها -->
+    <div class="col-md-6 lesson-card">
+      <div class="card shadow-lg border-0 h-100">
+        <div class="card-header"><h5 class="mb-0 text-dark"><strong>🧰 الوحدة 8: استكشاف الأخطاء وإصلاحها</strong></h5></div>
+        <div class="card-body bg-light">
+          <p class="card-text">منهجية منهجية: من الطبقة الفيزيائية حتى التطبيق، أدوات ping وtraceroute وshow.</p>
+          <div class="row g-2">
+            <div class="col-6"><a href="pdf/Unit8-Troubleshooting.pdf" class="btn btn-outline-dark w-100">📊 عرض المنهجية</a></div>
+            <div class="col-6"><a href="Summaries/Unit8-Flowchart.pdf" class="btn btn-outline-primary w-100">🗺️ مخطط خطوات</a></div>
+            <div class="col-6"><a href="labs/Unit8-FixNetwork.pt" class="btn btn-outline-success w-100">🧪 مختبر أعطال</a></div>
+            <div class="col-6"><a href="quizzes/Unit8-Homework.pdf" class="btn btn-outline-danger w-100">🏠 وظيفة بيتية</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- الوحدة 9: IPv6 أساسيات -->
+    <div class="col-md-6 lesson-card">
+      <div class="card shadow-lg border-0 h-100">
+        <div class="card-header"><h5 class="mb-0 text-dark"><strong>🧩 الوحدة 9: IPv6 الأساسيات</strong></h5></div>
+        <div class="card-body bg-light">
+          <p class="card-text">هيكل العنوان، أقنعة /64، SLAAC وDHCPv6، وتمارين انتقالية بسيطة.</p>
+          <div class="row g-2">
+            <div class="col-6"><a href="pdf/Unit9-IPv6.pdf" class="btn btn-outline-dark w-100">📊 عرض IPv6</a></div>
+            <div class="col-6"><a href="Summaries/Unit9-Summary.pdf" class="btn btn-outline-primary w-100">📝 ملخّص</a></div>
+            <div class="col-6"><a href="labs/Unit9-IPv6Basics.pt" class="btn btn-outline-success w-100">🧪 مختبر IPv6</a></div>
+            <div class="col-6"><a href="quizzes/Unit9-Quiz.html" class="btn btn-outline-danger w-100">🧩 اختبار</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- الوحدة 10: الإنترنت وWAN (مبسّط) -->
+    <div class="col-md-6 lesson-card">
+      <div class="card shadow-lg border-0 h-100">
+        <div class="card-header"><h5 class="mb-0 text-dark"><strong>🌍 الوحدة 10: WAN والاتصال بالإنترنت</strong></h5></div>
+        <div class="card-body bg-light">
+          <p class="card-text">مزوّد الخدمة، الموجه الحدودي، NAT للإنترنت، ومفاهيم VPN مبسّطة.</p>
+          <div class="row g-2">
+            <div class="col-6"><a href="pdf/Unit10-WAN-Internet.pdf" class="btn btn-outline-dark w-100">📊 عرض WAN</a></div>
+            <div class="col-6"><a href="Summaries/Unit10-Summary.pdf" class="btn btn-outline-primary w-100">📝 ملخّص</a></div>
+            <div class="col-6"><a href="labs/Unit10-InternetEdge.pt" class="btn btn-outline-success w-100">🧪 مختبر الحافة</a></div>
+            <div class="col-6"><a href="quizzes/Unit10-Homework.pdf" class="btn btn-outline-danger w-100">🏠 وظيفة بيتية</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- الوحدة 11: مشاريع عملية مصغّرة -->
+    <div class="col-md-6 lesson-card">
+      <div class="card shadow-lg border-0 h-100">
+        <div class="card-header"><h5 class="mb-0 text-dark"><strong>🛠️ الوحدة 11: مشاريع مصغّرة</strong></h5></div>
+        <div class="card-body bg-light">
+          <p class="card-text">مشروع شبكة مدرسة: VLAN للصفوف، Wi‑Fi للضيوف، DHCP مركزي، وACL أساسي.</p>
+          <div class="row g-2">
+            <div class="col-6"><a href="pdf/Unit11-ProjectGuide.pdf" class="btn btn-outline-dark w-100">📘 دليل المشروع</a></div>
+            <div class="col-6"><a href="rubrics/Unit11-Rubric.pdf" class="btn btn-outline-primary w-100">📏 Rubric التقييم</a></div>
+            <div class="col-6"><a href="labs/Unit11-SchoolNetwork.pt" class="btn btn-outline-success w-100">🧪 ملف المشروع</a></div>
+            <div class="col-6"><a href="submissions/Unit11-Submit.html" class="btn btn-outline-danger w-100">📤 تسليم المشروع</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- الوحدة 12: نماذج امتحانات -->
+    <div class="col-md-6 lesson-card">
+      <div class="card shadow-lg border-0 h-100">
+        <div class="card-header"><h5 class="mb-0 text-dark"><strong>📝 الوحدة 12: نماذج امتحانات وتدريبات</strong></h5></div>
+        <div class="card-body bg-light">
+          <p class="card-text">تدريبات شاملة بأسلوب CCNA مدرسي: اختيار متعدد، ترتيب خطوات، وأسئلة عملية.</p>
+          <div class="row g-2">
+            <div class="col-6"><a href="exams/Networking_2025_A.pdf" class="btn btn-outline-dark w-100">📝 نموذج 2025‑A</a></div>
+            <div class="col-6"><a href="exams/Networking_2024_B.pdf" class="btn btn-outline-primary w-100">📝 نموذج 2024‑B</a></div>
+            <div class="col-6"><a href="exams/Networking_2023_C.pdf" class="btn btn-outline-success w-100">📝 نموذج 2023‑C</a></div>
+            <div class="col-6"><a href="exams/Networking_2022_D.pdf" class="btn btn-outline-danger w-100">📝 نموذج 2022‑D</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="mt-5">
+  <div class="container text-center">
+    <p>© 2025 جميع الحقوق محفوظة – برنامج شبكات الحاسوب المدرسي</p>
+    <p id="contact">📧 تواصل معنا: <a href="mailto:NassarWafik@gmail.com">NassarWafik@gmail.com</a></p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+```
+
+want me to also generate the PDFs/summaries templates, Packet Tracer labs (.pt) skeletons, or a `links.html` with official resources (NetAcad, Skills for All, Packet Tracer download, Wireshark)? I can scaffold those next.
