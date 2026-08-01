@@ -1,282 +1,729 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>تعلم شبكات الحاسوب - مسار CCNA المدرسي</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
-  <style>
-    body{background-color:#f8f9fa;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif}
-    .lesson-card{margin-bottom:20px}
-    .card-header{background:#ffffff;border-bottom:1px solid #e9ecef}
-    .card .btn{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    footer{background-color:#343a40;color:#fff;padding:20px 0}
-    footer a{color:#ccc;text-decoration:none}
-    footer a:hover{text-decoration:underline}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مشروع التدريب الكامل 791381 | T01–T26 وF01–F06</title>
+<style>
+:root{
+ --navy:#071a2d;--blue:#164d7a;--cyan:#16828b;--red:#e94560;
+ --bg:#f3f6fb;--text:#17243a;--muted:#68758b;--line:#dce5f0;
+ --green:#137247;--green-bg:#dcf5e8;--orange:#875900;--orange-bg:#fff0d2;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Tajawal,Arial,sans-serif;line-height:1.7}
+.hero{
+ background:radial-gradient(circle at 18% 25%,rgba(255,255,255,.13),transparent 26%),
+ linear-gradient(135deg,var(--navy),var(--blue) 60%,var(--cyan));
+ color:#fff;text-align:center;padding:49px 17px 42px;border-radius:0 0 34px 34px;
+ box-shadow:0 10px 34px rgba(7,26,45,.25)
+}
+.eyebrow{font-size:.8rem;font-weight:900;letter-spacing:2.2px;opacity:.75}
+.hero h1{font-size:clamp(1.8rem,5vw,3rem);margin:8px 0}
+.hero p{max-width:850px;margin:0 auto;opacity:.91}
+.stats{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:22px}
+.stat{min-width:122px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.1);padding:8px 14px;border-radius:14px}
+.stat b{display:block;font-size:1.25rem} .stat span{font-size:.75rem;opacity:.86}
+.sticky-tools{position:sticky;top:0;z-index:1000;background:rgba(243,246,251,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.tools{max-width:1180px;margin:auto;padding:10px 14px;display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+.search{flex:1;min-width:220px;border:1px solid #ccd8e6;border-radius:999px;padding:10px 16px;font:inherit;background:#fff}
+.filter{border:1px solid #ccdae8;background:#fff;color:var(--blue);border-radius:999px;padding:8px 13px;font-weight:900;cursor:pointer}
+.filter.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+main{max-width:1180px;margin:22px auto;padding:0 14px 50px}
+.intro{background:#fff;border:1px solid var(--line);border-radius:18px;padding:17px 20px;box-shadow:0 3px 15px rgba(0,0,0,.055)}
+.intro h2{font-size:1.13rem;margin:0 0 4px} .intro p{margin:0;color:var(--muted)}
+.quick{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}
+.quick a{text-decoration:none;padding:6px 11px;border-radius:999px;background:#edf4fb;color:var(--blue);border:1px solid #d5e3f0;font-weight:900;font-size:.83rem}
+.section{margin-top:27px}
+.section-heading{display:flex;justify-content:space-between;align-items:end;gap:10px;margin:0 3px 13px}
+.section-heading h2{margin:0;font-size:1.3rem} .section-heading p{margin:0;color:var(--muted);font-size:.85rem}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:17px;box-shadow:0 4px 17px rgba(9,34,59,.07);display:flex;flex-direction:column;transition:.2s}
+.card:hover{transform:translateY(-3px);box-shadow:0 9px 27px rgba(9,34,59,.115)}
+.card-head{display:grid;grid-template-columns:auto 1fr;gap:11px;align-items:center}
+.exam-card .card-head{grid-template-columns:auto 1fr auto}
+.code{width:54px;height:54px;border-radius:17px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;box-shadow:0 4px 13px rgba(0,0,0,.17)}
+.training-code{background:linear-gradient(135deg,var(--navy),var(--blue))}
+.exam-code{background:linear-gradient(135deg,#b72f49,var(--red))}
+.head-text small{display:block;color:var(--muted);font-size:.71rem;font-weight:800}
+.head-text h3{margin:1px 0 0;font-size:1rem;line-height:1.45}
+.card p{color:#536177;font-size:.88rem;margin:14px 0 12px;min-height:74px}
+.info-row{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;background:#f7f9fc;border:1px solid #e7edf5;border-radius:11px;padding:7px 9px;font-size:.76rem;color:#58677e}
+.tags{display:flex;gap:5px;flex-wrap:wrap;margin:11px 0 14px}
+.tag{font-size:.67rem;font-weight:800;color:#365574;background:#edf3f9;border-radius:999px;padding:3px 8px}
+.open-btn{margin-top:auto;text-decoration:none;color:#fff;padding:9px 14px;border-radius:999px;display:flex;justify-content:center;gap:10px;align-items:center;font-weight:900}
+.training-btn{background:linear-gradient(135deg,var(--blue),var(--cyan))}
+.exam-btn{background:linear-gradient(135deg,var(--red),#c2314c)}
+.grading{padding:4px 8px;border-radius:999px;font-size:.66rem;font-weight:900;white-space:nowrap}
+.grading.auto{background:var(--green-bg);color:var(--green)}
+.grading.manual{background:var(--orange-bg);color:var(--orange)}
+.item-card.hidden{display:none}
+.empty{display:none;text-align:center;background:#fff;border:1px dashed #b8c7d8;border-radius:15px;padding:22px;margin-top:20px;color:var(--muted)}
+footer{text-align:center;color:#7b8798;padding:5px 15px 32px;font-size:.84rem}
+@media(max-width:940px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){
+ .grid{grid-template-columns:1fr}
+ .card p{min-height:auto}
+ .section-heading{display:block}
+ .section-heading p{margin-top:3px}
+ .exam-card .card-head{grid-template-columns:auto 1fr}
+ .grading{grid-column:1/-1;width:max-content}
+}
+</style>
 </head>
 <body>
+<header class="hero">
+ <div class="eyebrow">NETWORK TRAINING PROJECT · UNIT 791381</div>
+ <h1>مشروع التدريبات والامتحانات الكامل</h1>
+ <p>صفحة واحدة تضم جميع التدريبات التفاعلية من T01 إلى T26، ثم الامتحانات النهائية من F01 إلى F06، بعد تحديث أسماء الملفات إلى الصيغة المختصرة.</p>
+ <div class="stats">
+  <div class="stat"><b>26</b><span>تدريبًا وامتحانًا شاملًا</span></div>
+  <div class="stat"><b>6</b><span>امتحانات نهائية</span></div>
+  <div class="stat"><b>32</b><span>رابطًا في المشروع</span></div>
+ </div>
+</header>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">🌐 شبكات الحاسوب (K‑12)</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="mainNavbar">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link active" href="#">الرئيسية</a></li>
-        <li class="nav-item"><a class="nav-link" href="lessons.html">الوحدات التعليمية</a></li>
-        <li class="nav-item"><a class="nav-link" href="links.html">روابط مهمة</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<div class="container" id="lessons">
-  <h1 class="text-center mb-4">الوحدات التعليمية – مسار CCNA لطلاب المدارس</h1>
-  <div class="row">
-
-    <!-- مدخل إلى شبكات الحاسوب -->
-    <div class="col-md-6 lesson-card">
-      <div class="card shadow-lg border-0 h-100">
-        <div class="card-header">
-          <h5 class="mb-0 text-dark"><strong>🔰 مدخل إلى شبكات الحاسوب</strong></h5>
-        </div>
-        <div class="card-body bg-light">
-          <p class="card-text">ما هي الشبكة؟ لماذا نحتاجها؟ أنواع الشبكات (LAN/WAN/WLAN) وأمثلة مدرسية وحياتية.</p>
-          <div class="row g-2">
-            <div class="col-6"><a href="pdf/Unit0-Intro.pdf" class="btn btn-outline-primary w-100">📊 عرض تمهيدي</a></div>
-            <div class="col-6"><a href="Summaries/Unit0-Summary.pdf" class="btn btn-outline-secondary w-100">📝 تلخيص سريع</a></div>
-            <div class="col-6"><a href="labs/Unit0-ExploreNetwork.pt" class="btn btn-outline-success w-100">🧪 ملف Packet Tracer</a></div>
-            <div class="col-6"><a href="quizzes/Unit0-Quiz.html" class="btn btn-outline-danger w-100">🧩 اختبار قصير</a></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- الأدوات والمحاكيات -->
-    <div class="col-md-6 lesson-card">
-      <div class="card shadow-lg border-0 h-100">
-        <div class="card-header">
-          <h5 class="mb-0 text-dark"><strong>🧰 أدوات ومحاكيات</strong></h5>
-        </div>
-        <div class="card-body bg-light">
-          <p class="card-text">ابدأ بالتجربة العملية: Packet Tracer، Wireshark، وآلة حاسبة لعناوين IP.</p>
-          <div class="row g-2">
-            <div class="col-6"><a href="tools/PacketTracer.html" class="btn btn-outline-success w-100">🧪 Packet Tracer</a></div>
-            <div class="col-6"><a href="tools/Wireshark.html" class="btn btn-outline-info w-100">🔎 Wireshark أساسيات</a></div>
-            <div class="col-6"><a href="tools/ipcalc.html" class="btn btn-outline-primary w-100">🧮 حاسبة الشبكات</a></div>
-            <div class="col-6"><a href="tools/cli-cheatsheet.pdf" class="btn btn-outline-secondary w-100">📄 أوامر CLI مختصرة</a></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- الوحدة 1: الأساس النظري OSI/TCP-IP -->
-    <div class="col-md-6 lesson-card">
-      <div class="card shadow-lg border-0 h-100">
-        <div class="card-header"><h5 class="mb-0 text-dark"><strong>📘 الوحدة 1: نموذج OSI وTCP/IP</strong></h5></div>
-        <div class="card-body bg-light">
-          <p class="card-text">طبقات الشبكة، أدوار كل طبقة، أمثلة بروتوكولات، وكيف تمر البيانات عبر الشبكة.</p>
-          <div class="row g-2">
-            <div class="col-6"><a href="pdf/Unit1-OSI-TCPIP.pdf" class="btn btn-outline-dark w-100">📊 عرض الشرائح</a></div>
-            <div class="col-6"><a href="Summaries/Unit1-Summary.pdf" class="btn btn-outline-primary w-100">📝 تلخيص الدرس</a></div>
-            <div class="col-6"><a href="labs/Unit1-Layers-PT.pt" class="btn btn-outline-success w-100">🧪 تجربة طبقات</a></div>
-            <div class="col-6"><a href="quizzes/Unit1-Quiz.html" class="btn btn-outline-danger w-100">🏠 وظيفة بيتية</a></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- الوحدة 2: أجهزة الشبكات -->
-    <div class="col-md-6 lesson-card">
-      <div class="card shadow-lg border-0 h-100">
-        <div class="card-header"><h5 class="mb-0 text-dark"><strong>🖧 الوحدة 2: أجهزة الشبكات</strong></h5></div>
-        <div class="card-body bg-light">
-          <p class="card-text">مبدّل (Switch)، موزّع (Hub)، موجّه (Router)، نقطة وصول (AP)، وكيبلات.</p>
-          <div class="row g-2">
-            <div class="col-6"><a href="pdf/Unit2-Devices-Cabling.pdf" class="btn btn-outline-dark w-100">📊 الأجهزة والكيبلات</a></div>
-            <div class="col-6"><a href="Summaries/Unit2-Summary.pdf" class="btn btn-outline-primary w-100">📝 ملخّص</a></div>
-            <div class="col-6"><a href="labs/Unit2-DeviceIntro.pt" class="btn btn-outline-success w-100">🧪 توصيل مختبر</a></div>
-            <div class="col-6"><a href="quizzes/Unit2-Worksheet.pdf" class="btn btn-outline-danger w-100">📄 ورقة عمل</a></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- الوحدة 3: العنونة IPv4 والسبنتنغ -->
-    <div class="col-md-6 lesson-card">
-      <div class="card shadow-lg border-0 h-100">
-        <div class="card-header"><h5 class="mb-0 text-dark"><strong>🧮 الوحدة 3: IPv4 والعنونة والتقسيم (Subnetting)</strong></h5></div>
-        <div class="card-body bg-light">
-          <p class="card-text">تركيب عنوان IP، القناع، الشبكة/البرودكاست، وتمارين تقسيم سهلة للمدارس.</p>
-          <div class="row g-2">
-            <div class="col-6"><a href="pdf/Unit3-IPv4-Subnetting.pdf" class="btn btn-outline-dark w-100">📊 عرض IPv4</a></div>
-            <div class="col-6"><a href="Summaries/Unit3-QuickGuide.pdf" class="btn btn-outline-primary w-100">📝 دليل سريع</a></div>
-            <div class="col-6"><a href="labs/Unit3-Subnetting-PT.pt" class="btn btn-outline-success w-100">🧪 مختبر سبنتنغ</a></div>
-            <div class="col-6"><a href="quizzes/Unit3-Quiz.html" class="btn btn-outline-danger w-100">🧩 اختبار سريع</a></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- الوحدة 4: السويتشنغ وVLAN -->
-    <div class="col-md-6 lesson-card">
-      <div class="card shadow-lg border-0 h-100">
-        <div class="card-header"><h5 class="mb-0 text-dark"><strong>🔀 الوحدة 4: السويتشنغ وVLAN</strong></h5></div>
-        <div class="card-body bg-light">
-          <p class="card-text">جداول MAC، تكوين VLAN، Trunking، وInter-VLAN Routing (مستوى مبسّط).</p>
-          <div class="row g-2">
-            <div class="col-6"><a href="pdf/Unit4-Switching-VLANs.pdf" class="btn btn-outline-dark w-100">📊 عرض السويتشنغ</a></div>
-            <div class="col-6"><a href="Summaries/Unit4-Summary.pdf" class="btn btn-outline-primary w-100">📝 ملخّص</a></div>
-            <div class="col-6"><a href="labs/Unit4-VLANs-PT.pt" class="btn btn-outline-success w-100">🧪 مختبر VLAN</a></div>
-            <div class="col-6"><a href="quizzes/Unit4-Homework.pdf" class="btn btn-outline-danger w-100">🏠 وظيفة بيتية</a></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- الوحدة 5: الراوتنغ الأساسي -->
-    <div class="col-md-6 lesson-card">
-      <div class="card shadow-lg border-0 h-100">
-        <div class="card-header"><h5 class="mb-0 text-dark"><strong>🧭 الوحدة 5: الراوتنغ الأساسي</strong></h5></div>
-        <div class="card-body bg-light">
-          <p class="card-text">التوجيه الثابت، المفاهيم الأساسية لـ RIP/OSPF للمدارس، ومسارات افتراضية.</p>
-          <div class="row g-2">
-            <div class="col-6"><a href="pdf/Unit5-Routing-Basics.pdf" class="btn btn-outline-dark w-100">📊 عرض التوجيه</a></div>
-            <div class="col-6"><a href="Summaries/Unit5-Commands.pdf" class="btn btn-outline-primary w-100">📄 أوامر شائعة</a></div>
-            <div class="col-6"><a href="labs/Unit5-StaticRoutes.pt" class="btn btn-outline-success w-100">🧪 مختبر Static</a></div>
-            <div class="col-6"><a href="quizzes/Unit5-Quiz.html" class="btn btn-outline-danger w-100">🧩 اختبار</a></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- الوحدة 6: الشبكات اللاسلكية -->
-    <div class="col-md-6 lesson-card">
-      <div class="card shadow-lg border-0 h-100">
-        <div class="card-header"><h5 class="mb-0 text-dark"><strong>📡 الوحدة 6: الشبكات اللاسلكية (Wi‑Fi)</strong></h5></div>
-        <div class="card-body bg-light">
-          <p class="card-text">مفاهيم 2.4/5 GHz، قنوات، تشفير WPA2/WPA3، وتخطيط نقطة وصول مدرسية.</p>
-          <div class="row g-2">
-            <div class="col-6"><a href="pdf/Unit6-Wireless.pdf" class="btn btn-outline-dark w-100">📊 عرض Wi‑Fi</a></div>
-            <div class="col-6"><a href="Summaries/Unit6-Summary.pdf" class="btn btn-outline-primary w-100">📝 ملخّص</a></div>
-            <div class="col-6"><a href="labs/Unit6-AP-Setup.pt" class="btn btn-outline-success w-100">🧪 إعداد AP</a></div>
-            <div class="col-6"><a href="quizzes/Unit6-Worksheet.pdf" class="btn btn-outline-danger w-100">📄 ورقة عمل</a></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- الوحدة 7: الخدمات وNAT وDHCP وDNS وACL -->
-    <div class="col-md-6 lesson-card">
-      <div class="card shadow-lg border-0 h-100">
-        <div class="card-header"><h5 class="mb-0 text-dark"><strong>🛡️ الوحدة 7: خدمات الشبكة والأمان (DHCP/DNS/NAT/ACL)</strong></h5></div>
-        <div class="card-body bg-light">
-          <p class="card-text">توزيع العناوين تلقائيًا، ترجمة العناوين، أساسيات قوائم التحكم بالوصول.</p>
-          <div class="row g-2">
-            <div class="col-6"><a href="pdf/Unit7-Services-Security.pdf" class="btn btn-outline-dark w-100">📊 عرض الخدمات</a></div>
-            <div class="col-6"><a href="Summaries/Unit7-ACL-Cheat.pdf" class="btn btn-outline-primary w-100">📄 ملخّص ACL</a></div>
-            <div class="col-6"><a href="labs/Unit7-DHCP-NAT-ACL.pt" class="btn btn-outline-success w-100">🧪 مختبر خدمات</a></div>
-            <div class="col-6"><a href="quizzes/Unit7-Quiz.html" class="btn btn-outline-danger w-100">🧩 اختبار</a></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- الوحدة 8: استكشاف الأخطاء وإصلاحها -->
-    <div class="col-md-6 lesson-card">
-      <div class="card shadow-lg border-0 h-100">
-        <div class="card-header"><h5 class="mb-0 text-dark"><strong>🧰 الوحدة 8: استكشاف الأخطاء وإصلاحها</strong></h5></div>
-        <div class="card-body bg-light">
-          <p class="card-text">منهجية منهجية: من الطبقة الفيزيائية حتى التطبيق، أدوات ping وtraceroute وshow.</p>
-          <div class="row g-2">
-            <div class="col-6"><a href="pdf/Unit8-Troubleshooting.pdf" class="btn btn-outline-dark w-100">📊 عرض المنهجية</a></div>
-            <div class="col-6"><a href="Summaries/Unit8-Flowchart.pdf" class="btn btn-outline-primary w-100">🗺️ مخطط خطوات</a></div>
-            <div class="col-6"><a href="labs/Unit8-FixNetwork.pt" class="btn btn-outline-success w-100">🧪 مختبر أعطال</a></div>
-            <div class="col-6"><a href="quizzes/Unit8-Homework.pdf" class="btn btn-outline-danger w-100">🏠 وظيفة بيتية</a></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- الوحدة 9: IPv6 أساسيات -->
-    <div class="col-md-6 lesson-card">
-      <div class="card shadow-lg border-0 h-100">
-        <div class="card-header"><h5 class="mb-0 text-dark"><strong>🧩 الوحدة 9: IPv6 الأساسيات</strong></h5></div>
-        <div class="card-body bg-light">
-          <p class="card-text">هيكل العنوان، أقنعة /64، SLAAC وDHCPv6، وتمارين انتقالية بسيطة.</p>
-          <div class="row g-2">
-            <div class="col-6"><a href="pdf/Unit9-IPv6.pdf" class="btn btn-outline-dark w-100">📊 عرض IPv6</a></div>
-            <div class="col-6"><a href="Summaries/Unit9-Summary.pdf" class="btn btn-outline-primary w-100">📝 ملخّص</a></div>
-            <div class="col-6"><a href="labs/Unit9-IPv6Basics.pt" class="btn btn-outline-success w-100">🧪 مختبر IPv6</a></div>
-            <div class="col-6"><a href="quizzes/Unit9-Quiz.html" class="btn btn-outline-danger w-100">🧩 اختبار</a></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- الوحدة 10: الإنترنت وWAN (مبسّط) -->
-    <div class="col-md-6 lesson-card">
-      <div class="card shadow-lg border-0 h-100">
-        <div class="card-header"><h5 class="mb-0 text-dark"><strong>🌍 الوحدة 10: WAN والاتصال بالإنترنت</strong></h5></div>
-        <div class="card-body bg-light">
-          <p class="card-text">مزوّد الخدمة، الموجه الحدودي، NAT للإنترنت، ومفاهيم VPN مبسّطة.</p>
-          <div class="row g-2">
-            <div class="col-6"><a href="pdf/Unit10-WAN-Internet.pdf" class="btn btn-outline-dark w-100">📊 عرض WAN</a></div>
-            <div class="col-6"><a href="Summaries/Unit10-Summary.pdf" class="btn btn-outline-primary w-100">📝 ملخّص</a></div>
-            <div class="col-6"><a href="labs/Unit10-InternetEdge.pt" class="btn btn-outline-success w-100">🧪 مختبر الحافة</a></div>
-            <div class="col-6"><a href="quizzes/Unit10-Homework.pdf" class="btn btn-outline-danger w-100">🏠 وظيفة بيتية</a></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- الوحدة 11: مشاريع عملية مصغّرة -->
-    <div class="col-md-6 lesson-card">
-      <div class="card shadow-lg border-0 h-100">
-        <div class="card-header"><h5 class="mb-0 text-dark"><strong>🛠️ الوحدة 11: مشاريع مصغّرة</strong></h5></div>
-        <div class="card-body bg-light">
-          <p class="card-text">مشروع شبكة مدرسة: VLAN للصفوف، Wi‑Fi للضيوف، DHCP مركزي، وACL أساسي.</p>
-          <div class="row g-2">
-            <div class="col-6"><a href="pdf/Unit11-ProjectGuide.pdf" class="btn btn-outline-dark w-100">📘 دليل المشروع</a></div>
-            <div class="col-6"><a href="rubrics/Unit11-Rubric.pdf" class="btn btn-outline-primary w-100">📏 Rubric التقييم</a></div>
-            <div class="col-6"><a href="labs/Unit11-SchoolNetwork.pt" class="btn btn-outline-success w-100">🧪 ملف المشروع</a></div>
-            <div class="col-6"><a href="submissions/Unit11-Submit.html" class="btn btn-outline-danger w-100">📤 تسليم المشروع</a></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- الوحدة 12: نماذج امتحانات -->
-    <div class="col-md-6 lesson-card">
-      <div class="card shadow-lg border-0 h-100">
-        <div class="card-header"><h5 class="mb-0 text-dark"><strong>📝 الوحدة 12: نماذج امتحانات وتدريبات</strong></h5></div>
-        <div class="card-body bg-light">
-          <p class="card-text">تدريبات شاملة بأسلوب CCNA مدرسي: اختيار متعدد، ترتيب خطوات، وأسئلة عملية.</p>
-          <div class="row g-2">
-            <div class="col-6"><a href="exams/Networking_2025_A.pdf" class="btn btn-outline-dark w-100">📝 نموذج 2025‑A</a></div>
-            <div class="col-6"><a href="exams/Networking_2024_B.pdf" class="btn btn-outline-primary w-100">📝 نموذج 2024‑B</a></div>
-            <div class="col-6"><a href="exams/Networking_2023_C.pdf" class="btn btn-outline-success w-100">📝 نموذج 2023‑C</a></div>
-            <div class="col-6"><a href="exams/Networking_2022_D.pdf" class="btn btn-outline-danger w-100">📝 نموذج 2022‑D</a></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
+<div class="sticky-tools">
+ <div class="tools">
+  <input id="searchBox" class="search" type="search" placeholder="ابحث عن تدريب أو موضوع: VLAN، DHCP، OSPF..." aria-label="البحث">
+  <button class="filter active" data-filter="all">الكل</button>
+  <button class="filter" data-filter="foundation">الأساسيات</button>
+  <button class="filter" data-filter="infra">البنى التحتية</button>
+  <button class="filter" data-filter="comprehensive">الشامل</button>
+  <button class="filter" data-filter="final">النهائي</button>
+ </div>
 </div>
 
-<footer class="mt-5">
-  <div class="container text-center">
-    <p>© 2025 جميع الحقوق محفوظة – برنامج شبكات الحاسوب المدرسي</p>
-    <p id="contact">📧 تواصل معنا: <a href="mailto:NassarWafik@gmail.com">NassarWafik@gmail.com</a></p>
-  </div>
-</footer>
+<main>
+ <section class="intro">
+  <h2>مسار العمل المقترح</h2>
+  <p>ابدأ بتدريبات الأساسيات، ثم انتقل إلى Cisco والبنى التحتية، وبعدها حل T25 وT26، واختتم بالنماذج النهائية F01–F06.</p>
+  <nav class="quick">
+   <a href="#foundation">T01–T14</a>
+   <a href="#infra">T15–T24</a>
+   <a href="#comprehensive">T25–T26</a>
+   <a href="#final">F01–F06</a>
+  </nav>
+ </section>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+ <section class="section filter-section" id="foundation" data-section-group="foundation">
+  <div class="section-heading"><h2>أولًا: التدريبات الأساسية T01–T14</h2><p>من أساسيات الشبكات حتى الأمان وتجزئة البيانات</p></div>
+  <div class="grid">
+<article class="card item-card" data-group="foundation" data-search="T01 أساسيات الشبكات أساسيات LAN / WAN مفاهيم أولية">
+  <div class="card-head">
+    <div class="code training-code">T01</div>
+    <div class="head-text">
+      <small>تدريب تفاعلي</small>
+      <h3>أساسيات الشبكات</h3>
+    </div>
+  </div>
+  <p>تعريف الشبكة، فوائدها، أنواعها الأساسية، ومكوّنات بناء شبكة بسيطة.</p>
+  <div class="info-row">
+    <span><b>10</b> سؤالًا</span>
+    <span>الصفحات <b>6–11</b></span>
+  </div>
+  <div class="tags"><span class="tag">أساسيات</span><span class="tag">LAN / WAN</span><span class="tag">مفاهيم أولية</span></div>
+  <a class="open-btn training-btn" href="T01.html">فتح T01<span>←</span></a>
+</article>
+
+<article class="card item-card" data-group="foundation" data-search="T02 أنظمة العد Decimal Binary Hexadecimal">
+  <div class="card-head">
+    <div class="code training-code">T02</div>
+    <div class="head-text">
+      <small>تدريب تفاعلي</small>
+      <h3>أنظمة العد</h3>
+    </div>
+  </div>
+  <p>التحويل بين النظام العشري والثنائي والسادس عشري، وفهم قيمة الخانات.</p>
+  <div class="info-row">
+    <span><b>10</b> سؤالًا</span>
+    <span>الصفحات <b>13–21</b></span>
+  </div>
+  <div class="tags"><span class="tag">Decimal</span><span class="tag">Binary</span><span class="tag">Hexadecimal</span></div>
+  <a class="open-btn training-btn" href="T02.html">فتح T02<span>←</span></a>
+</article>
+
+<article class="card item-card" data-group="foundation" data-search="T03 عناوين IPv4 وصلاحية العنوان IPv4 APIPA Localhost">
+  <div class="card-head">
+    <div class="code training-code">T03</div>
+    <div class="head-text">
+      <small>تدريب تفاعلي</small>
+      <h3>عناوين IPv4 وصلاحية العنوان</h3>
+    </div>
+  </div>
+  <p>بنية IPv4، فحص صحة العناوين، Localhost وAPIPA، والتمييز بين العنوان السليم وغير السليم.</p>
+  <div class="info-row">
+    <span><b>10</b> سؤالًا</span>
+    <span>الصفحات <b>23–27</b></span>
+  </div>
+  <div class="tags"><span class="tag">IPv4</span><span class="tag">APIPA</span><span class="tag">Localhost</span></div>
+  <a class="open-btn training-btn" href="T03.html">فتح T03<span>←</span></a>
+</article>
+
+<article class="card item-card" data-group="foundation" data-search="T04 العناوين الخاصة والعامة Private IP Public IP Static / Dynamic">
+  <div class="card-head">
+    <div class="code training-code">T04</div>
+    <div class="head-text">
+      <small>تدريب تفاعلي</small>
+      <h3>العناوين الخاصة والعامة</h3>
+    </div>
+  </div>
+  <p>تمييز Public وPrivate IP، المجالات الخاصة، والفرق بين Static وDynamic.</p>
+  <div class="info-row">
+    <span><b>10</b> سؤالًا</span>
+    <span>الصفحات <b>28–31</b></span>
+  </div>
+  <div class="tags"><span class="tag">Private IP</span><span class="tag">Public IP</span><span class="tag">Static / Dynamic</span></div>
+  <a class="open-btn training-btn" href="T04.html">فتح T04<span>←</span></a>
+</article>
+
+<article class="card item-card" data-group="foundation" data-search="T05 Class وSubnet وCIDR Class A/B/C Subnet Mask CIDR">
+  <div class="card-head">
+    <div class="code training-code">T05</div>
+    <div class="head-text">
+      <small>تدريب تفاعلي</small>
+      <h3>Class وSubnet وCIDR</h3>
+    </div>
+  </div>
+  <p>فئات العناوين، أقنعة الشبكة، CIDR، Network وHost، وتحديد الشبكة والبوابة.</p>
+  <div class="info-row">
+    <span><b>10</b> سؤالًا</span>
+    <span>الصفحات <b>33–43</b></span>
+  </div>
+  <div class="tags"><span class="tag">Class A/B/C</span><span class="tag">Subnet Mask</span><span class="tag">CIDR</span></div>
+  <a class="open-btn training-btn" href="T05.html">فتح T05<span>←</span></a>
+</article>
+
+<article class="card item-card" data-group="foundation" data-search="T06 أجهزة الشبكات Hub Switch Router">
+  <div class="card-head">
+    <div class="code training-code">T06</div>
+    <div class="head-text">
+      <small>تدريب تفاعلي</small>
+      <h3>أجهزة الشبكات</h3>
+    </div>
+  </div>
+  <p>الفرق بين Hub وSwitch وRouter ووظيفة كل جهاز في الشبكة.</p>
+  <div class="info-row">
+    <span><b>10</b> سؤالًا</span>
+    <span>الصفحات <b>47–54</b></span>
+  </div>
+  <div class="tags"><span class="tag">Hub</span><span class="tag">Switch</span><span class="tag">Router</span></div>
+  <a class="open-btn training-btn" href="T06.html">فتح T06<span>←</span></a>
+</article>
+
+<article class="card item-card" data-group="foundation" data-search="T07 أشكال توصيل الشبكات Topologies Star Hybrid">
+  <div class="card-head">
+    <div class="code training-code">T07</div>
+    <div class="head-text">
+      <small>تدريب تفاعلي</small>
+      <h3>أشكال توصيل الشبكات</h3>
+    </div>
+  </div>
+  <p>مراجعة Point-to-Point وBus وRing وStar وTree وHybrid واختيار الشكل الأنسب.</p>
+  <div class="info-row">
+    <span><b>10</b> سؤالًا</span>
+    <span>الصفحات <b>56–58</b></span>
+  </div>
+  <div class="tags"><span class="tag">Topologies</span><span class="tag">Star</span><span class="tag">Hybrid</span></div>
+  <a class="open-btn training-btn" href="T07.html">فتح T07<span>←</span></a>
+</article>
+
+<article class="card item-card" data-group="foundation" data-search="T08 الكوابل وعنوان MAC Cables MAC Layer 2">
+  <div class="card-head">
+    <div class="code training-code">T08</div>
+    <div class="head-text">
+      <small>تدريب تفاعلي</small>
+      <h3>الكوابل وعنوان MAC</h3>
+    </div>
+  </div>
+  <p>UTP وSTP وFiber وCoaxial، وبنية عنوان MAC وعلاقته بطبقة Data Link.</p>
+  <div class="info-row">
+    <span><b>10</b> سؤالًا</span>
+    <span>الصفحات <b>60–63</b></span>
+  </div>
+  <div class="tags"><span class="tag">Cables</span><span class="tag">MAC</span><span class="tag">Layer 2</span></div>
+  <a class="open-btn training-btn" href="T08.html">فتح T08<span>←</span></a>
+</article>
+
+<article class="card item-card" data-group="foundation" data-search="T09 Unicast وMulticast وBroadcast Unicast Multicast Broadcast">
+  <div class="card-head">
+    <div class="code training-code">T09</div>
+    <div class="head-text">
+      <small>تدريب تفاعلي</small>
+      <h3>Unicast وMulticast وBroadcast</h3>
+    </div>
+  </div>
+  <p>أنواع إرسال الرسائل، Broadcast MAC، واستخدام البث في ARP وDHCP.</p>
+  <div class="info-row">
+    <span><b>10</b> سؤالًا</span>
+    <span>الصفحات <b>65–72</b></span>
+  </div>
+  <div class="tags"><span class="tag">Unicast</span><span class="tag">Multicast</span><span class="tag">Broadcast</span></div>
+  <a class="open-btn training-btn" href="T09.html">فتح T09<span>←</span></a>
+</article>
+
+<article class="card item-card" data-group="foundation" data-search="T10 نماذج OSI وTCP/IP OSI TCP/IP TCP / UDP">
+  <div class="card-head">
+    <div class="code training-code">T10</div>
+    <div class="head-text">
+      <small>تدريب تفاعلي</small>
+      <h3>نماذج OSI وTCP/IP</h3>
+    </div>
+  </div>
+  <p>طبقات OSI وTCP/IP، وظائف الطبقات، والفرق بين TCP وUDP.</p>
+  <div class="info-row">
+    <span><b>10</b> سؤالًا</span>
+    <span>الصفحات <b>75–84</b></span>
+  </div>
+  <div class="tags"><span class="tag">OSI</span><span class="tag">TCP/IP</span><span class="tag">TCP / UDP</span></div>
+  <a class="open-btn training-btn" href="T10.html">فتح T10<span>←</span></a>
+</article>
+
+<article class="card item-card" data-group="foundation" data-search="T11 البروتوكولات الأساسية HTTP / HTTPS DNS / DHCP SSH / Telnet">
+  <div class="card-head">
+    <div class="code training-code">T11</div>
+    <div class="head-text">
+      <small>تدريب تفاعلي</small>
+      <h3>البروتوكولات الأساسية</h3>
+    </div>
+  </div>
+  <p>HTTP وHTTPS وDNS وDHCP والبريد وFTP وSSH وTelnet وأهم وظائفها.</p>
+  <div class="info-row">
+    <span><b>10</b> سؤالًا</span>
+    <span>الصفحات <b>85–90</b></span>
+  </div>
+  <div class="tags"><span class="tag">HTTP / HTTPS</span><span class="tag">DNS / DHCP</span><span class="tag">SSH / Telnet</span></div>
+  <a class="open-btn training-btn" href="T11.html">فتح T11<span>←</span></a>
+</article>
+
+<article class="card item-card" data-group="foundation" data-search="T12 أوامر فحص الشبكة ping ipconfig tracert / nslookup">
+  <div class="card-head">
+    <div class="code training-code">T12</div>
+    <div class="head-text">
+      <small>تدريب تفاعلي</small>
+      <h3>أوامر فحص الشبكة</h3>
+    </div>
+  </div>
+  <p>اختيار أوامر ping وipconfig وtracert وnslookup وarp لتشخيص مشكلات الشبكة.</p>
+  <div class="info-row">
+    <span><b>10</b> سؤالًا</span>
+    <span>الصفحات <b>91–95</b></span>
+  </div>
+  <div class="tags"><span class="tag">ping</span><span class="tag">ipconfig</span><span class="tag">tracert / nslookup</span></div>
+  <a class="open-btn training-btn" href="T12.html">فتح T12<span>←</span></a>
+</article>
+
+<article class="card item-card" data-group="foundation" data-search="T13 المجالات والمفاهيم Collision Domain Broadcast Domain STP">
+  <div class="card-head">
+    <div class="code training-code">T13</div>
+    <div class="head-text">
+      <small>تدريب تفاعلي</small>
+      <h3>المجالات والمفاهيم</h3>
+    </div>
+  </div>
+  <p>Collision Domain وBroadcast Domain وSTP وDuplex وLocalhost.</p>
+  <div class="info-row">
+    <span><b>10</b> سؤالًا</span>
+    <span>الصفحات <b>96–102</b></span>
+  </div>
+  <div class="tags"><span class="tag">Collision Domain</span><span class="tag">Broadcast Domain</span><span class="tag">STP</span></div>
+  <a class="open-btn training-btn" href="T13.html">فتح T13<span>←</span></a>
+</article>
+
+<article class="card item-card" data-group="foundation" data-search="T14 أمان الشبكات وتجزئة البيانات Network Security Attacks Segment / Packet / Frame">
+  <div class="card-head">
+    <div class="code training-code">T14</div>
+    <div class="head-text">
+      <small>تدريب تفاعلي</small>
+      <h3>أمان الشبكات وتجزئة البيانات</h3>
+    </div>
+  </div>
+  <p>DoS وDDoS وMitM وPhishing وSpoofing، ثم Segment وPacket وFrame.</p>
+  <div class="info-row">
+    <span><b>10</b> سؤالًا</span>
+    <span>الصفحات <b>107–115</b></span>
+  </div>
+  <div class="tags"><span class="tag">Network Security</span><span class="tag">Attacks</span><span class="tag">Segment / Packet / Frame</span></div>
+  <a class="open-btn training-btn" href="T14.html">فتح T14<span>←</span></a>
+</article>
+</div>
+ </section>
+
+ <section class="section filter-section" id="infra" data-section-group="infra">
+  <div class="section-heading"><h2>ثانيًا: Cisco والبنى التحتية T15–T24</h2><p>VLAN وVTP وTrunk وDHCP وWAN والتوجيه وACL</p></div>
+  <div class="grid">
+<article class="card item-card" data-group="infra" data-search="T15 برمجة السويتش وVLAN الأساسية Cisco CLI VLAN Access Port">
+  <div class="card-head">
+    <div class="code training-code">T15</div>
+    <div class="head-text">
+      <small>تدريب تفاعلي</small>
+      <h3>برمجة السويتش وVLAN الأساسية</h3>
+    </div>
+  </div>
+  <p>واجهة CLI، أوضاع الأوامر، إنشاء VLAN وتسميتها وربط منافذ Access بها.</p>
+  <div class="info-row">
+    <span><b>10</b> سؤالًا</span>
+    <span>الصفحات <b>119–126</b></span>
+  </div>
+  <div class="tags"><span class="tag">Cisco CLI</span><span class="tag">VLAN</span><span class="tag">Access Port</span></div>
+  <a class="open-btn training-btn" href="T15.html">فتح T15<span>←</span></a>
+</article>
+
+<article class="card item-card" data-group="infra" data-search="T16 بروتوكول VTP VTP Server VTP Client Domain">
+  <div class="card-head">
+    <div class="code training-code">T16</div>
+    <div class="head-text">
+      <small>تدريب تفاعلي</small>
+      <h3>بروتوكول VTP</h3>
+    </div>
+  </div>
+  <p>VTP Server وClient وDomain وPassword ونقل تحديثات VLAN عبر Trunk.</p>
+  <div class="info-row">
+    <span><b>10</b> سؤالًا</span>
+    <span>الصفحات <b>137–142</b></span>
+  </div>
+  <div class="tags"><span class="tag">VTP Server</span><span class="tag">VTP Client</span><span class="tag">Domain</span></div>
+  <a class="open-btn training-btn" href="T16.html">فتح T16<span>←</span></a>
+</article>
+
+<article class="card item-card" data-group="infra" data-search="T17 Trunk وdot1Q وRouter-on-a-Stick Trunk dot1Q Router-on-a-Stick">
+  <div class="card-head">
+    <div class="code training-code">T17</div>
+    <div class="head-text">
+      <small>تدريب تفاعلي</small>
+      <h3>Trunk وdot1Q وRouter-on-a-Stick</h3>
+    </div>
+  </div>
+  <p>الفرق بين Access وTrunk، تغليف dot1Q، الواجهات الفرعية والتوجيه بين VLANs.</p>
+  <div class="info-row">
+    <span><b>10</b> سؤالًا</span>
+    <span>الصفحات <b>143–154</b></span>
+  </div>
+  <div class="tags"><span class="tag">Trunk</span><span class="tag">dot1Q</span><span class="tag">Router-on-a-Stick</span></div>
+  <a class="open-btn training-btn" href="T17.html">فتح T17<span>←</span></a>
+</article>
+
+<article class="card item-card" data-group="infra" data-search="T18 DMZ وWi-Fi وIPv6 والمنافذ DMZ Wi-Fi IPv6 / Ports">
+  <div class="card-head">
+    <div class="code training-code">T18</div>
+    <div class="head-text">
+      <small>تدريب تفاعلي</small>
+      <h3>DMZ وWi-Fi وIPv6 والمنافذ</h3>
+    </div>
+  </div>
+  <p>DMZ والشبكات اللاسلكية وSSID وأمان Wi-Fi وIPv6 وأرقام منافذ الخدمات.</p>
+  <div class="info-row">
+    <span><b>10</b> سؤالًا</span>
+    <span>الصفحات <b>157–166</b></span>
+  </div>
+  <div class="tags"><span class="tag">DMZ</span><span class="tag">Wi-Fi</span><span class="tag">IPv6 / Ports</span></div>
+  <a class="open-btn training-btn" href="T18.html">فتح T18<span>←</span></a>
+</article>
+
+<article class="card item-card" data-group="infra" data-search="T19 بروتوكول DHCP DHCP DORA Excluded Address">
+  <div class="card-head">
+    <div class="code training-code">T19</div>
+    <div class="head-text">
+      <small>تدريب تفاعلي</small>
+      <h3>بروتوكول DHCP</h3>
+    </div>
+  </div>
+  <p>مراحل DORA وإعداد DHCP على الراوتر أوServer والاستثناءات وAPIPA.</p>
+  <div class="info-row">
+    <span><b>10</b> سؤالًا</span>
+    <span>الصفحات <b>167–177</b></span>
+  </div>
+  <div class="tags"><span class="tag">DHCP</span><span class="tag">DORA</span><span class="tag">Excluded Address</span></div>
+  <a class="open-btn training-btn" href="T19.html">فتح T19<span>←</span></a>
+</article>
+
+<article class="card item-card" data-group="infra" data-search="T20 Port Security وحماية Cisco Port Security Sticky MAC Passwords">
+  <div class="card-head">
+    <div class="code training-code">T20</div>
+    <div class="head-text">
+      <small>تدريب تفاعلي</small>
+      <h3>Port Security وحماية Cisco</h3>
+    </div>
+  </div>
+  <p>Port Security وSticky MAC وMaximum وViolation وحماية Console وVTY وEnable.</p>
+  <div class="info-row">
+    <span><b>10</b> سؤالًا</span>
+    <span>الصفحات <b>178–188</b></span>
+  </div>
+  <div class="tags"><span class="tag">Port Security</span><span class="tag">Sticky MAC</span><span class="tag">Passwords</span></div>
+  <a class="open-btn training-btn" href="T20.html">فتح T20<span>←</span></a>
+</article>
+
+<article class="card item-card" data-group="infra" data-search="T21 مرجع أوامر Cisco 15 سؤالًا Cisco Commands show commands">
+  <div class="card-head">
+    <div class="code training-code">T21</div>
+    <div class="head-text">
+      <small>تدريب تفاعلي</small>
+      <h3>مرجع أوامر Cisco</h3>
+    </div>
+  </div>
+  <p>مراجعة موسعة لأوامر الإعداد والفحص الخاصة بـVLAN وVTP وTrunk وPort Security والتوجيه.</p>
+  <div class="info-row">
+    <span><b>15</b> سؤالًا</span>
+    <span>الصفحات <b>190–197</b></span>
+  </div>
+  <div class="tags"><span class="tag">15 سؤالًا</span><span class="tag">Cisco Commands</span><span class="tag">show commands</span></div>
+  <a class="open-btn training-btn" href="T21.html">فتح T21<span>←</span></a>
+</article>
+
+<article class="card item-card" data-group="infra" data-search="T22 الشبكات الواسعة WAN WAN Metro Ethernet HDLC / ATM">
+  <div class="card-head">
+    <div class="code training-code">T22</div>
+    <div class="head-text">
+      <small>تدريب تفاعلي</small>
+      <h3>الشبكات الواسعة WAN</h3>
+    </div>
+  </div>
+  <p>مفهوم WAN وتقنيات Frame Relay وATM وHDLC وMetro Ethernet.</p>
+  <div class="info-row">
+    <span><b>10</b> سؤالًا</span>
+    <span>الصفحات <b>205–211</b></span>
+  </div>
+  <div class="tags"><span class="tag">WAN</span><span class="tag">Metro Ethernet</span><span class="tag">HDLC / ATM</span></div>
+  <a class="open-btn training-btn" href="T22.html">فتح T22<span>←</span></a>
+</article>
+
+<article class="card item-card" data-group="infra" data-search="T23 بروتوكولات التوجيه Static Route OSPF EIGRP">
+  <div class="card-head">
+    <div class="code training-code">T23</div>
+    <div class="head-text">
+      <small>تدريب تفاعلي</small>
+      <h3>بروتوكولات التوجيه</h3>
+    </div>
+  </div>
+  <p>Static Route وOSPF وEIGRP وMetric وAdministrative Distance وأوامر التوجيه.</p>
+  <div class="info-row">
+    <span><b>10</b> سؤالًا</span>
+    <span>الصفحات <b>212–220</b></span>
+  </div>
+  <div class="tags"><span class="tag">Static Route</span><span class="tag">OSPF</span><span class="tag">EIGRP</span></div>
+  <a class="open-btn training-btn" href="T23.html">فتح T23<span>←</span></a>
+</article>
+
+<article class="card item-card" data-group="infra" data-search="T24 قوائم التحكم ACL ACL Standard / Extended Wildcard">
+  <div class="card-head">
+    <div class="code training-code">T24</div>
+    <div class="head-text">
+      <small>تدريب تفاعلي</small>
+      <h3>قوائم التحكم ACL</h3>
+    </div>
+  </div>
+  <p>Standard وExtended ACL وpermit وdeny وWildcard وتطبيق القوائم على الواجهات.</p>
+  <div class="info-row">
+    <span><b>10</b> سؤالًا</span>
+    <span>الصفحات <b>221–225</b></span>
+  </div>
+  <div class="tags"><span class="tag">ACL</span><span class="tag">Standard / Extended</span><span class="tag">Wildcard</span></div>
+  <a class="open-btn training-btn" href="T24.html">فتح T24<span>←</span></a>
+</article>
+</div>
+ </section>
+
+ <section class="section filter-section" id="comprehensive" data-section-group="comprehensive">
+  <div class="section-heading"><h2>ثالثًا: الامتحانان الشاملان T25–T26</h2><p>20 سؤالًا في كل نموذج من القسم الأساسي</p></div>
+  <div class="grid">
+<article class="card item-card" data-group="comprehensive" data-search="T25 امتحان شامل للقسم الأساسي — A 20 سؤالًا مراجعة شاملة النموذج A">
+  <div class="card-head">
+    <div class="code training-code">T25</div>
+    <div class="head-text">
+      <small>امتحان شامل</small>
+      <h3>امتحان شامل للقسم الأساسي — A</h3>
+    </div>
+  </div>
+  <p>نموذج شامل أول من 20 سؤالًا يغطي المفاهيم الأساسية من بداية الكتاب حتى DHCP.</p>
+  <div class="info-row">
+    <span><b>20</b> سؤالًا</span>
+    <span>الصفحات <b>6–188</b></span>
+  </div>
+  <div class="tags"><span class="tag">20 سؤالًا</span><span class="tag">مراجعة شاملة</span><span class="tag">النموذج A</span></div>
+  <a class="open-btn training-btn" href="T25.html">فتح T25<span>←</span></a>
+</article>
+
+<article class="card item-card" data-group="comprehensive" data-search="T26 امتحان شامل للقسم الأساسي — B 20 سؤالًا مراجعة شاملة النموذج B">
+  <div class="card-head">
+    <div class="code training-code">T26</div>
+    <div class="head-text">
+      <small>امتحان شامل</small>
+      <h3>امتحان شامل للقسم الأساسي — B</h3>
+    </div>
+  </div>
+  <p>نموذج شامل ثانٍ من 20 سؤالًا بصياغات مختلفة لمقارنة المستوى وتثبيت الفهم.</p>
+  <div class="info-row">
+    <span><b>20</b> سؤالًا</span>
+    <span>الصفحات <b>6–188</b></span>
+  </div>
+  <div class="tags"><span class="tag">20 سؤالًا</span><span class="tag">مراجعة شاملة</span><span class="tag">النموذج B</span></div>
+  <a class="open-btn training-btn" href="T26.html">فتح T26<span>←</span></a>
+</article>
+</div>
+ </section>
+
+ <section class="section filter-section" id="final" data-section-group="final">
+  <div class="section-heading"><h2>رابعًا: الامتحانات النهائية F01–F06</h2><p>نماذج مدرسية ثم امتحانا البجروت 2024 و2025</p></div>
+  <div class="grid">
+<article class="card exam-card item-card" data-group="final" data-search="F01 نموذج A — 2025 امتحان شهري تفاعلي مدرسي تمهيدي–متوسط تفاعلي">
+  <div class="card-head">
+    <div class="code exam-code">F01</div>
+    <div class="head-text">
+      <small>امتحان شهري تفاعلي</small>
+      <h3>نموذج A — 2025</h3>
+    </div>
+    <span class="grading auto">تصحيح آلي</span>
+  </div>
+  <p>نموذج مدرسي تمهيدي إلى متوسط يراجع الأساسيات، IP، أنظمة العد والبنى التحتية.</p>
+  <div class="info-row">
+    <span>المدة: <b>90 دقيقة</b></span>
+    <span>الوحدة <b>791381</b></span>
+  </div>
+  <div class="tags"><span class="tag">مدرسي</span><span class="tag">تمهيدي–متوسط</span><span class="tag">تفاعلي</span></div>
+  <a class="open-btn exam-btn" href="F01.html">فتح F01<span>←</span></a>
+</article>
+
+<article class="card exam-card item-card" data-group="final" data-search="F02 نموذج C — 2025 امتحان الفصل الثاني أربعة أقسام شامل تفاعلي">
+  <div class="card-head">
+    <div class="code exam-code">F02</div>
+    <div class="head-text">
+      <small>امتحان الفصل الثاني</small>
+      <h3>نموذج C — 2025</h3>
+    </div>
+    <span class="grading auto">تصحيح آلي</span>
+  </div>
+  <p>امتحان شامل من أربعة أقسام يجمع بين المفاهيم والأوامر والأسئلة المتنوعة.</p>
+  <div class="info-row">
+    <span>المدة: <b>90 دقيقة</b></span>
+    <span>الوحدة <b>791381</b></span>
+  </div>
+  <div class="tags"><span class="tag">أربعة أقسام</span><span class="tag">شامل</span><span class="tag">تفاعلي</span></div>
+  <a class="open-btn exam-btn" href="F02.html">فتح F02<span>←</span></a>
+</article>
+
+<article class="card exam-card item-card" data-group="final" data-search="F03 نموذج D — 2025 امتحان دبلوم تكشوف دبلوم 60 + 40 متقدم">
+  <div class="card-head">
+    <div class="code exam-code">F03</div>
+    <div class="head-text">
+      <small>امتحان دبلوم تكشوف</small>
+      <h3>نموذج D — 2025</h3>
+    </div>
+    <span class="grading auto">تصحيح آلي</span>
+  </div>
+  <p>امتحان متوسط إلى متقدم يتيح الاختيار من عدد أكبر من الأسئلة ويجمع 60+40.</p>
+  <div class="info-row">
+    <span>المدة: <b>120 دقيقة</b></span>
+    <span>الوحدة <b>791381</b></span>
+  </div>
+  <div class="tags"><span class="tag">دبلوم</span><span class="tag">60 + 40</span><span class="tag">متقدم</span></div>
+  <a class="open-btn exam-btn" href="F03.html">فتح F03<span>←</span></a>
+</article>
+
+<article class="card exam-card item-card" data-group="final" data-search="F04 نموذج B — 2024 امتحان مدرسي في الشبكات مدرسي تطبيقي شبكات">
+  <div class="card-head">
+    <div class="code exam-code">F04</div>
+    <div class="head-text">
+      <small>امتحان مدرسي في الشبكات</small>
+      <h3>نموذج B — 2024</h3>
+    </div>
+    <span class="grading auto">تصحيح آلي</span>
+  </div>
+  <p>نموذج متنوع في شبكات الاتصال، يجمع بين المعرفة والتطبيق والأوامر.</p>
+  <div class="info-row">
+    <span>المدة: <b>حصتان</b></span>
+    <span>الوحدة <b>791381</b></span>
+  </div>
+  <div class="tags"><span class="tag">مدرسي</span><span class="tag">تطبيقي</span><span class="tag">شبكات</span></div>
+  <a class="open-btn exam-btn" href="F04.html">فتح F04<span>←</span></a>
+</article>
+
+<article class="card exam-card item-card" data-group="final" data-search="F05 بجروت صيف 2024 امتحان بجروت رسمي بجروت رسمي 2024 رسومات أصلية">
+  <div class="card-head">
+    <div class="code exam-code">F05</div>
+    <div class="head-text">
+      <small>امتحان بجروت رسمي</small>
+      <h3>بجروت صيف 2024</h3>
+    </div>
+    <span class="grading manual">تدريب وكتابة</span>
+  </div>
+  <p>النسخة الرسمية المرتبة مع الرسومات والأسئلة الأصلية، مخصصة للحل والكتابة.</p>
+  <div class="info-row">
+    <span>المدة: <b>3.5 ساعات</b></span>
+    <span>الوحدة <b>791381</b></span>
+  </div>
+  <div class="tags"><span class="tag">بجروت رسمي</span><span class="tag">2024</span><span class="tag">رسومات أصلية</span></div>
+  <a class="open-btn exam-btn" href="F05.html">فتح F05<span>←</span></a>
+</article>
+
+<article class="card exam-card item-card" data-group="final" data-search="F06 بجروت صيف 2025 امتحان بجروت رسمي تفاعلي بجروت رسمي 2025 تفاعلي">
+  <div class="card-head">
+    <div class="code exam-code">F06</div>
+    <div class="head-text">
+      <small>امتحان بجروت رسمي تفاعلي</small>
+      <h3>بجروت صيف 2025</h3>
+    </div>
+    <span class="grading auto">تصحيح آلي</span>
+  </div>
+  <p>أحدث امتحان في الحزمة، يضم القسم الأساسي وتخصص البنى التحتية مع الرسومات الأصلية.</p>
+  <div class="info-row">
+    <span>المدة: <b>حسب التعليمات</b></span>
+    <span>الوحدة <b>791381</b></span>
+  </div>
+  <div class="tags"><span class="tag">بجروت رسمي</span><span class="tag">2025</span><span class="tag">تفاعلي</span></div>
+  <a class="open-btn exam-btn" href="F06.html">فتح F06<span>←</span></a>
+</article>
+</div>
+ </section>
+
+ <div id="emptyState" class="empty">لم يتم العثور على نتيجة مطابقة.</div>
+</main>
+
+<footer>الأستاذ وفيق نصار · شبكات الاتصال · الوحدة 791381</footer>
+
+<script>
+const searchBox = document.getElementById('searchBox');
+const buttons = [...document.querySelectorAll('.filter')];
+const cards = [...document.querySelectorAll('.item-card')];
+const sections = [...document.querySelectorAll('.filter-section')];
+const emptyState = document.getElementById('emptyState');
+let currentFilter = 'all';
+
+function normalize(value) {
+  return value.toLowerCase().replace(/[ـًٌٍَُِّْ]/g,'').trim();
+}
+
+function applyFilter() {
+  const term = normalize(searchBox.value);
+  let visibleCount = 0;
+
+  cards.forEach(card => {
+    const groupMatch = currentFilter === 'all' || card.dataset.group === currentFilter;
+    const searchMatch = !term || normalize(card.dataset.search).includes(term);
+    const show = groupMatch && searchMatch;
+    card.classList.toggle('hidden', !show);
+    if (show) visibleCount++;
+  });
+
+  sections.forEach(section => {
+    const visible = section.querySelectorAll('.item-card:not(.hidden)').length > 0;
+    section.style.display = visible ? '' : 'none';
+  });
+
+  emptyState.style.display = visibleCount ? 'none' : 'block';
+}
+
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    buttons.forEach(b => b.classList.remove('active'));
+    button.classList.add('active');
+    currentFilter = button.dataset.filter;
+    applyFilter();
+  });
+});
+
+searchBox.addEventListener('input', applyFilter);
+</script>
 </body>
 </html>
-
